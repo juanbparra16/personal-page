@@ -60,7 +60,8 @@ a:hover{text-decoration-color:var(--ink)}
 .progress{position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
 
 .rule{height:32px;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);
-  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:8px 8px;background-position:-1px -1px}
+  background-color:var(--topo-bg);
+  background-image:linear-gradient(color-mix(in srgb,var(--t3) 22%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--t3) 22%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--t1) 28%,transparent),color-mix(in srgb,var(--t2) 22%,transparent) 40%,color-mix(in srgb,var(--t4) 18%,transparent));background-size:8px 8px,8px 8px,100% 100%;background-position:-1px -1px,-1px -1px,0 0}
 
 /* cover */
 .cover{position:relative;height:250px;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -168,7 +169,7 @@ section{scroll-margin-top:64px}
 .ih p{font:400 12px/1.4 var(--mono);color:var(--muted)}
 .item ul{list-style:none;padding:0;margin-top:14px;display:grid;gap:8px;color:var(--ink2)}
 .item li{padding-left:16px;position:relative}
-.item li::before{content:"";position:absolute;left:2px;top:.72em;width:5px;height:1px;background:var(--muted)}
+.item li::before{content:"";position:absolute;left:1px;top:.62em;width:5px;height:5px;background:var(--t3)}
 .item li b{color:var(--ink);font-weight:500}
 .item > p{color:var(--ink2);margin-top:12px}
 .todo{color:var(--muted);font-style:italic}
@@ -199,7 +200,7 @@ section{scroll-margin-top:64px}
 kbd{font:500 10px/1 var(--mono);border:1px solid var(--line2);border-radius:4px;padding:2px 4px;color:var(--ink2);background:var(--bg)}
 
 .vid{margin-top:16px;border:1px solid var(--line2);border-radius:12px;overflow:hidden;background:var(--card)}
-.vid video{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.vid video{display:block;width:100%;height:auto}
 .steps{margin-top:16px}
 .photo{margin-top:14px;border-radius:12px;overflow:hidden;border:1px solid var(--line2);aspect-ratio:16/7;max-width:100%}
 .photo img{width:100%;height:100%;object-fit:cover}
@@ -252,7 +253,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 
 <div class="frame">
   <header class="nav pad">
-    <a class="logo" href="#top" aria-label="Back to top">JBPH<i>.</i></a>
+    <a class="logo" href="#top" aria-label="Back to top">JBPH</a>
     <nav class="links" aria-label="Sections">
       <a href="#about">about</a>
       <a href="#work">work</a>
@@ -361,33 +362,13 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
       <article class="item" id="tempo">
         <div class="ih"><span class="lg">t</span><div><h3>tempo mail</h3><p>email, without the mouse</p></div></div>
         <p>An email client you use only with the keyboard, in the spirit of Superhuman. I built it to read, archive and reply faster without touching the mouse. It works as a prototype today, and the next step is to measure it against Gmail.</p>
-        <div class="strip" aria-label="Sample Tempo Mail screens">
-          <figure class="scr">
-            <div class="tb"><span>inbox</span><span>4 unread</span></div>
-            <div class="m done"><span>Bank</span><span>October statement</span></div>
-            <div class="m sel"><span>Aleph team</span><span>Customer kickoff</span></div>
-            <div class="m"><span>Founder</span><span>Seed round deck</span></div>
-            <div class="m"><span>Newsletter</span><span>This week in AI</span></div>
-            <figcaption>01 · <kbd>j</kbd> <kbd>k</kbd> to move, <kbd>e</kbd> to archive</figcaption>
-          </figure>
-          <figure class="scr">
-            <div class="tb"><span>commands</span><span><kbd>⌘k</kbd></span></div>
-            <div class="pal"><div>arch</div><div class="sel"><span>Archive</span><span>e</span></div><div><span>Archive and next</span><span>⇧e</span></div><div><span>Go to archive</span><span>g a</span></div></div>
-            <figcaption>02 · everything lives in the command bar</figcaption>
-          </figure>
-          <figure class="scr">
-            <div class="tb"><span>reply</span><span><kbd>r</kbd></span></div>
-            <div class="bd"><span>To: Aleph team</span><p>Sounds good, see you Thursday. I'll send the agenda today.</p><span><kbd>⌘↵</kbd> send</span></div>
-            <figcaption>03 · reply without leaving the keyboard</figcaption>
-          </figure>
-        </div>
-        <p class="hint">drag the strip · sample screens, real screenshots coming</p>
+        <figure class="vid"><video src="img/tempo.mp4" poster="img/tempo-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="Tempo Mail demo" width="1280" height="800"></video></figure>
       </article>
 
       <article class="item" id="faro">
         <div class="ih"><span class="lg">f</span><div><h3>faro</h3><p>my radar for ideas worth building</p></div></div>
         <p>My personal radar for problems, ideas and opportunities. I jot down whatever I notice during the day in a few seconds, then decide quickly what to drop, keep or work on. Once a week Claude goes through everything and suggests new ideas, including some outside what I usually look at.</p>
-        <figure class="vid"><video src="img/faro.mp4" poster="img/faro-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="Faro demo"></video></figure>
+        <figure class="vid"><video src="img/faro.mp4" poster="img/faro-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="Faro demo" width="1280" height="720"></video></figure>
         <p class="hint">capturing and deciding need no ai. claude only steps in, in batches, when it's worth it.</p>
       </article>
     </div>
