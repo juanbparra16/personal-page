@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Architects+Daughter&display=swap">
 <style>
-/* Layout: one 720px column framed by hairlines, sections split by a pair of contour lines that echo the map. The cover is a contour map of Bogotá's Eastern Hills, the only color on the page. */
+/* Layout: one 720px column framed by hairlines, sections split by a hairline with a short accent in the map's teal. The cover is a contour map of Bogotá's Eastern Hills, the only color on the page. */
 :root{
   --bg:#fdfdfc; --ink:#0a0a0a; --ink2:#404040; --muted:#737373; --soft:#a3a3a3;
   --line:#e9e9e7; --line2:#dcdcd9; --card:#ffffff; --hover:#f5f5f3; --live:#22c55e; --read:#60a5fa;
@@ -59,7 +59,8 @@ a:hover{text-decoration-color:var(--ink)}
 .links a:hover,.links a.on{color:var(--ink);background:var(--hover)}
 .progress{position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
 
-.rule{height:28px;margin-block:6px;background:var(--soft);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='28'%3E%3Cg fill='none' stroke='%23000' stroke-width='1'%3E%3Cpath d='M0 9 C40 3 80 3 120 9 S200 15 240 9'/%3E%3Cpath d='M0 19 C40 14 80 12 120 19 S200 24 240 19'/%3E%3C/g%3E%3C/svg%3E") repeat-x 0 0/240px 28px;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='28'%3E%3Cg fill='none' stroke='%23000' stroke-width='1'%3E%3Cpath d='M0 9 C40 3 80 3 120 9 S200 15 240 9'/%3E%3Cpath d='M0 19 C40 14 80 12 120 19 S200 24 240 19'/%3E%3C/g%3E%3C/svg%3E") repeat-x 0 0/240px 28px;opacity:.8}
+.rule{position:relative;height:1px;margin-block:28px 4px;background:var(--line)}
+.rule::before{content:"";position:absolute;left:max(24px, env(safe-area-inset-left, 0px));top:-1px;width:28px;height:3px;background:var(--t3)}
 
 /* cover */
 .cover{position:relative;height:250px;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -71,7 +72,7 @@ a:hover{text-decoration-color:var(--ink)}
 .pk i{display:block;margin:3px auto 0;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:7px solid var(--ink)}
 .pk.city i{width:6px;height:6px;border:0;border-radius:50%;background:var(--ink)}
 .coord{position:absolute;right:12px;bottom:10px;font:400 10.5px/1 var(--mono);color:var(--muted);text-shadow:0 0 4px var(--topo-bg)}
-.chip{position:absolute;right:12px;top:12px;font:500 11px/1 var(--mono);padding:6px 8px;border-radius:6px;background:var(--card);border:1px solid var(--line2);color:var(--ink2);cursor:pointer;z-index:1}
+.chip{position:absolute;right:12px;top:12px;font:italic 400 15px/1 var(--serif);padding:7px 12px 8px;border-radius:99px;background:var(--card);border:1px solid var(--line2);color:var(--ink2);cursor:pointer;z-index:1}
 .chip:hover{background:var(--hover);color:var(--ink)}
 .note{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
 .note.open{grid-template-rows:1fr}
@@ -116,8 +117,7 @@ a:hover{text-decoration-color:var(--ink)}
 .tldr svg{width:16px;height:16px}
 .tldr .dot{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 0 3px color-mix(in srgb,var(--live) 30%,transparent)}
 .tldr[aria-expanded="true"]{background:var(--card);color:var(--ink)}
-.scribble{display:flex;align-items:center;gap:4px;font:15px/1.2 var(--hand);color:var(--muted)}
-.scribble svg{width:46px;height:26px;flex:none}
+.scribble{font:italic 400 16px/1.3 var(--serif);color:var(--muted)}
 .scribble .ar-u{display:none}
 .drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s ease-out}
 .drawer.open{grid-template-rows:1fr}
@@ -154,7 +154,7 @@ main,body{counter-reset:sec}
 .sh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:18px;padding-bottom:14px}
 .sh h2{counter-increment:sec;display:flex;align-items:baseline;gap:12px;font:400 28px/1.1 var(--serif);letter-spacing:-.015em}
 .sh h2::before{content:counter(sec,decimal-leading-zero);font:500 11px/1 var(--mono);color:var(--t3);letter-spacing:.04em;transform:translateY(-3px)}
-.sh .meta{font:400 12px/1 var(--mono);color:var(--muted);white-space:nowrap}
+.sh .meta{font:italic 400 15px/1 var(--serif);color:var(--muted);white-space:nowrap}
 .sb{padding-top:22px;padding-bottom:30px}
 .prose{display:grid;gap:14px;color:var(--ink2)}
 .prose b{color:var(--ink);font-weight:500}
@@ -239,9 +239,10 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
   .kv div{grid-template-columns:minmax(0,1fr);gap:2px}
   .cover{height:200px}
   .tl-row{flex-direction:column;align-items:flex-start;gap:2px}
-  .scribble{padding-left:6px}
+  .tl-row{gap:8px}
+  .scribble{padding-left:4px}
   .scribble .ar-l{display:none}
-  .scribble .ar-u{display:block;margin-bottom:-4px}
+  .scribble .ar-u{display:inline}
   .chip{top:auto;bottom:10px}
   .coord{display:none}
   .hob{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -271,7 +272,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
       <span class="pk" style="left:46%;top:34%">monserrate<b>3,152 m</b><i></i></span>
       <span class="pk" style="left:60%;top:60%">guadalupe<b>3,317 m</b><i></i></span>
       <span class="coord" id="coord">4.61° N · 74.06° W</span>
-      <button class="chip" type="button" id="what" aria-expanded="false" aria-controls="note">cerros orientales · what's this?</button>
+      <button class="chip" type="button" id="what" aria-expanded="false" aria-controls="note">Cerros Orientales · what's this?</button>
     </div>
 
     <div class="intro pad">
@@ -284,7 +285,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 
     <div class="note pad" id="note"><div><div class="note-in">
       <b>cerros orientales</b>
-      <p>These are the Cerros Orientales, the green mountains along the east side of Bogotá. You can see them from almost anywhere in the city, and they're how everyone gets their bearings: the mountains are always east.</p>
+      <p>These are the Cerros Orientales, the green mountains along the east side of Bogotá. You can see them from almost anywhere in the city, and they're how everyone finds their way around: the mountains are always east.</p>
       <p>Monserrate, on top, is the city's postcard. I grew up looking at these hills, and they're still what tells me I'm home.</p>
     </div></div></div>
 
@@ -304,7 +305,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
       <div class="tl">
         <div class="tl-row">
           <button class="tldr" type="button" aria-expanded="false" id="tldr"><span class="dot" aria-hidden="true"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>tl;dr</button>
-          <span class="scribble" aria-hidden="true"><svg class="ar-l" viewBox="0 0 46 26"><path class="sk-ink" style="stroke-width:1.6;stroke:var(--muted)" d="M44 6 C30 2 16 6 8 16 M8 16 L9 8 M8 16 L15 15"/></svg><svg class="ar-u" viewBox="0 0 46 26"><path class="sk-ink" style="stroke-width:1.6;stroke:var(--muted)" d="M38 23 C26 22 16 16 13 4 M13 4 L9 10 M13 4 L18 9"/></svg>the 30-second version of everything below</span>
+          <span class="scribble"><span class="ar-l">← </span><span class="ar-u">↑ </span>the short version, as a 30-second chat</span>
         </div>
         <div class="drawer" id="drawer"><div><div class="chat" id="chat" role="log" aria-live="polite"></div></div></div>
       </div>
@@ -596,7 +597,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
   })();
 
   var what=document.getElementById("what"), note=document.getElementById("note");
-  what.addEventListener("click",function(){ var o=note.classList.toggle("open"); what.setAttribute("aria-expanded",o); what.textContent=o?"close ×":"cerros orientales · what's this?"; });
+  what.addEventListener("click",function(){ var o=note.classList.toggle("open"); what.setAttribute("aria-expanded",o); what.textContent=o?"close ×":"Cerros Orientales · what's this?"; });
 
   var clock=document.getElementById("clock");
   function tick(){ try{ clock.textContent=new Date().toLocaleTimeString("en-US",{timeZone:"America/Bogota",hour:"numeric",minute:"2-digit"}).toLowerCase(); }catch(e){} }
