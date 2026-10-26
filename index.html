@@ -9,9 +9,9 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Architects+Daughter&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Architects+Daughter&display=swap">
 <style>
-/* Layout: one 720px column framed by hairlines, sections split by a hairline with a short accent in the map's teal. The cover is a contour map of Bogotá's Eastern Hills, the only color on the page. */
+/* Layout: one 720px column framed by hairlines, sections split by a band of graph-paper squares. The cover is a contour map of Bogotá's Eastern Hills, the only color on the page. */
 :root{
   --bg:#fdfdfc; --ink:#0a0a0a; --ink2:#404040; --muted:#737373; --soft:#a3a3a3;
   --line:#e9e9e7; --line2:#dcdcd9; --card:#ffffff; --hover:#f5f5f3; --live:#22c55e; --read:#60a5fa;
@@ -52,15 +52,15 @@ a:hover{text-decoration-color:var(--ink)}
 /* nav */
 .nav{position:sticky;top:env(safe-area-inset-top, 0px);z-index:10;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;
   background:var(--nav);-webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4)}
-.logo{font:500 20px/1 var(--serif);letter-spacing:.04em;text-decoration:none}
+.logo{font:600 18px/1 var(--sans);letter-spacing:.06em;text-decoration:none}
 .logo i{font-style:italic;letter-spacing:0}
 .links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
 .links a{font-size:14px;color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:8px;white-space:nowrap;transition:background .2s,color .2s}
 .links a:hover,.links a.on{color:var(--ink);background:var(--hover)}
 .progress{position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
 
-.rule{position:relative;height:1px;margin-block:28px 4px;background:var(--line)}
-.rule::before{content:"";position:absolute;left:max(24px, env(safe-area-inset-left, 0px));top:-1px;width:28px;height:3px;background:var(--t3)}
+.rule{height:32px;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:8px 8px;background-position:-1px -1px}
 
 /* cover */
 .cover{position:relative;height:250px;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -72,13 +72,13 @@ a:hover{text-decoration-color:var(--ink)}
 .pk i{display:block;margin:3px auto 0;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:7px solid var(--ink)}
 .pk.city i{width:6px;height:6px;border:0;border-radius:50%;background:var(--ink)}
 .coord{position:absolute;right:12px;bottom:10px;font:400 10.5px/1 var(--mono);color:var(--muted);text-shadow:0 0 4px var(--topo-bg)}
-.chip{position:absolute;right:12px;top:12px;font:italic 400 15px/1 var(--serif);padding:7px 12px 8px;border-radius:99px;background:var(--card);border:1px solid var(--line2);color:var(--ink2);cursor:pointer;z-index:1}
+.chip{position:absolute;right:12px;top:12px;font:500 11px/1 var(--mono);padding:6px 8px;border-radius:4px;background:var(--card);border:1px solid var(--line2);color:var(--ink2);cursor:pointer;z-index:1}
 .chip:hover{background:var(--hover);color:var(--ink)}
 .note{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
 .note.open{grid-template-rows:1fr}
 .note > div{overflow:hidden}
 .note-in{padding-block:0 26px;display:grid;gap:10px;max-width:58ch;font-size:14px;color:var(--ink2)}
-.note-in b{font:400 22px/1.1 var(--serif);color:var(--ink)}
+.note-in b{font:600 18px/1.2 var(--sans);letter-spacing:-.01em;color:var(--ink)}
 .legend{display:flex;flex-wrap:wrap;gap:6px 16px;font:400 11px/1.4 var(--mono);color:var(--muted)}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
 
@@ -88,7 +88,7 @@ a:hover{text-decoration-color:var(--ink)}
 .avatar{padding:0;cursor:zoom-in;transition:transform .3s var(--ease)}
 .avatar:hover{transform:scale(1.03)}
 .avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.08);transform-origin:50% 30%}
-.intro h1{font:400 40px/1.05 var(--serif);letter-spacing:-.02em;padding-top:16px}
+.intro h1{font:500 36px/1.08 var(--sans);letter-spacing:-.025em;padding-top:16px}
 .tag{font:400 13px/1.5 var(--mono);color:var(--muted);margin-top:6px}
 .info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 20px;font:400 12.5px/1.5 var(--mono)}
 .info span{color:var(--muted);display:block;font-size:11px}
@@ -117,7 +117,7 @@ a:hover{text-decoration-color:var(--ink)}
 .tldr svg{width:16px;height:16px}
 .tldr .dot{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 0 3px color-mix(in srgb,var(--live) 30%,transparent)}
 .tldr[aria-expanded="true"]{background:var(--card);color:var(--ink)}
-.scribble{font:italic 400 16px/1.3 var(--serif);color:var(--muted)}
+.scribble{font:400 12px/1.4 var(--mono);color:var(--muted)}
 .scribble .ar-u{display:none}
 .drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s ease-out}
 .drawer.open{grid-template-rows:1fr}
@@ -150,11 +150,9 @@ a:hover{text-decoration-color:var(--ink)}
 
 /* sections */
 section{scroll-margin-top:64px}
-main,body{counter-reset:sec}
 .sh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:18px;padding-bottom:14px}
-.sh h2{counter-increment:sec;display:flex;align-items:baseline;gap:12px;font:400 28px/1.1 var(--serif);letter-spacing:-.015em}
-.sh h2::before{content:counter(sec,decimal-leading-zero);font:500 11px/1 var(--mono);color:var(--t3);letter-spacing:.04em;transform:translateY(-3px)}
-.sh .meta{font:italic 400 15px/1 var(--serif);color:var(--muted);white-space:nowrap}
+.sh h2{font:600 22px/1.15 var(--sans);letter-spacing:-.02em}
+.sh .meta{font:400 12px/1 var(--mono);color:var(--muted);white-space:nowrap}
 .sb{padding-top:22px;padding-bottom:30px}
 .prose{display:grid;gap:14px;color:var(--ink2)}
 .prose b{color:var(--ink);font-weight:500}
@@ -180,7 +178,7 @@ main,body{counter-reset:sec}
 .hint{font:400 11px/1.4 var(--mono);color:var(--muted);margin-top:6px}
 .tomb{width:180px;border:1px solid var(--ink);padding:14px 12px;text-align:center;display:grid;gap:5px;align-content:center;min-height:160px;background:var(--card)}
 .tomb .t1{font:500 10px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.tomb .t2{font:400 20px/1.1 var(--serif)}
+.tomb .t2{font:600 18px/1.15 var(--sans)}
 .tomb .t3{font-size:12px;color:var(--muted);line-height:1.4}
 .tomb hr{border:0;border-top:1px solid var(--line2);width:36px;margin:4px auto}
 .scr{width:250px;border:1px solid var(--line2);border-radius:12px;overflow:hidden;background:var(--card);font-size:12px;transition:transform .3s var(--ease)}
@@ -228,7 +226,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line2);border-radius:4px;
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) img.sk{filter:invert(1)}}
 :root[data-theme="dark"] img.sk{filter:invert(1)}
 
-.hi p.big{font:400 30px/1.15 var(--serif);max-width:22ch}
+.hi p.big{font:500 26px/1.2 var(--sans);letter-spacing:-.02em;max-width:22ch}
 footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:20px 40px;border-top:1px solid var(--line);font:400 11px/1.5 var(--mono);color:var(--muted)}
 
 @media (max-width:600px){
@@ -272,7 +270,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
       <span class="pk" style="left:46%;top:34%">monserrate<b>3,152 m</b><i></i></span>
       <span class="pk" style="left:60%;top:60%">guadalupe<b>3,317 m</b><i></i></span>
       <span class="coord" id="coord">4.61° N · 74.06° W</span>
-      <button class="chip" type="button" id="what" aria-expanded="false" aria-controls="note">Cerros Orientales · what's this?</button>
+      <button class="chip" type="button" id="what" aria-expanded="false" aria-controls="note">cerros orientales · what's this?</button>
     </div>
 
     <div class="intro pad">
@@ -597,7 +595,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
   })();
 
   var what=document.getElementById("what"), note=document.getElementById("note");
-  what.addEventListener("click",function(){ var o=note.classList.toggle("open"); what.setAttribute("aria-expanded",o); what.textContent=o?"close ×":"Cerros Orientales · what's this?"; });
+  what.addEventListener("click",function(){ var o=note.classList.toggle("open"); what.setAttribute("aria-expanded",o); what.textContent=o?"close ×":"cerros orientales · what's this?"; });
 
   var clock=document.getElementById("clock");
   function tick(){ try{ clock.textContent=new Date().toLocaleTimeString("en-US",{timeZone:"America/Bogota",hour:"numeric",minute:"2-digit"}).toLowerCase(); }catch(e){} }
