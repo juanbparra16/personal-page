@@ -9,17 +9,17 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Architects+Daughter&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Architects+Daughter&display=swap">
 <style>
-/* Layout: one 720px column framed by dotted edges, sections split by dotted rules and a dot-grid band. The cover is a contour map of Bogotá's Eastern Hills, the only color on the page. */
+/* Layout: one 720px column framed by hairlines, sections split by a pair of contour lines that echo the map. The cover is a contour map of Bogotá's Eastern Hills, the only color on the page. */
 :root{
   --bg:#fdfdfc; --ink:#0a0a0a; --ink2:#404040; --muted:#737373; --soft:#a3a3a3;
   --line:#e9e9e7; --line2:#dcdcd9; --card:#ffffff; --hover:#f5f5f3; --live:#22c55e; --read:#60a5fa;
   --nav:rgba(253,253,252,.84);
   --sky1:#f6e7cf; --sky2:#cfe1ea; --sun:#f1b24a; --cloud:#fbf6ee; --far:#a9bfc0; --hill:#4e7a61; --hill2:#3e6550; --tree:#35583f; --brick:#b65a3c; --brick2:#94452d; --win:#8a3b26; --chapel:#ffffff; --paramo:#8a9a5b; --paramo2:#75864a; --trunk:#5b4a3a; --leaf:#c8cdb0; --flower:#f0c23b; --cable:#3a3a3a; --topo-bg:#f3f5f1; --t1:#c9b98a; --t2:#8fae8f; --t3:#4a8478; --t4:#2a5d74; --grid:#c9cfc6; --h-blue:#3d5fae; --h-cream:#f6f3e8; --h-wood:#e2c28c; --h-red:#c8402f; --h-ochre:#d8b06a; --h-sage:#93ab8f; --h-dusty:#7f9bbd; --h-rose:#c99486; --h-green:#2f5d47; --h-leaf:#5f9a6c;
-  --sans:"Geist", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --mono:"Geist Mono", ui-monospace, "Cascadia Mono", Menlo, monospace;
-  --serif:"Instrument Serif", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "Cascadia Mono", Menlo, monospace;
+  --serif:"Newsreader", Georgia, "Times New Roman", serif;
   --hand:"Architects Daughter", "Comic Sans MS", cursive;
   --ease:cubic-bezier(0.16,1,0.3,1);
 }
@@ -45,25 +45,24 @@ a:hover{text-decoration-color:var(--ink)}
 
 .frame{max-width:720px;margin:0 auto;position:relative;overflow-x:clip}
 .frame::before,.frame::after{content:"";position:absolute;top:0;bottom:0;width:1px;z-index:2;
-  background:repeating-linear-gradient(to bottom,var(--soft) 0 1px,transparent 1px 4px);pointer-events:none}
+  background:var(--line);pointer-events:none}
 .frame::before{left:0}.frame::after{right:0}
 .pad{padding-left:max(24px, env(safe-area-inset-left, 0px));padding-right:max(24px, env(safe-area-inset-right, 0px))}
 
 /* nav */
 .nav{position:sticky;top:env(safe-area-inset-top, 0px);z-index:10;height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;
   background:var(--nav);-webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4)}
-.logo{font:400 22px/1 var(--serif);letter-spacing:.06em;text-decoration:none}
+.logo{font:500 20px/1 var(--serif);letter-spacing:.04em;text-decoration:none}
 .logo i{font-style:italic;letter-spacing:0}
 .links{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
 .links a{font-size:14px;color:var(--muted);text-decoration:none;padding:5px 9px;border-radius:8px;white-space:nowrap;transition:background .2s,color .2s}
 .links a:hover,.links a.on{color:var(--ink);background:var(--hover)}
 .progress{position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--ink);transform-origin:left;transform:scaleX(0)}
 
-.rule{height:30px;border-top:1px dotted var(--soft);border-bottom:1px dotted var(--soft);
-  background-image:radial-gradient(var(--line2) 1px,transparent 1.2px);background-size:8px 8px;background-position:4px 4px}
+.rule{height:28px;margin-block:6px;background:var(--soft);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='28'%3E%3Cg fill='none' stroke='%23000' stroke-width='1'%3E%3Cpath d='M0 9 C40 3 80 3 120 9 S200 15 240 9'/%3E%3Cpath d='M0 19 C40 14 80 12 120 19 S200 24 240 19'/%3E%3C/g%3E%3C/svg%3E") repeat-x 0 0/240px 28px;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='28'%3E%3Cg fill='none' stroke='%23000' stroke-width='1'%3E%3Cpath d='M0 9 C40 3 80 3 120 9 S200 15 240 9'/%3E%3Cpath d='M0 19 C40 14 80 12 120 19 S200 24 240 19'/%3E%3C/g%3E%3C/svg%3E") repeat-x 0 0/240px 28px;opacity:.8}
 
 /* cover */
-.cover{position:relative;height:250px;overflow:hidden;border-bottom:1px dotted var(--soft)}
+.cover{position:relative;height:250px;overflow:hidden;border-bottom:1px solid var(--line)}
 .cover{background:var(--topo-bg)}
 .cover canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:crosshair}
 .pk{position:absolute;transform:translate(-50%,-100%);font:500 10.5px/1.3 var(--mono);color:var(--ink);text-align:center;pointer-events:none;white-space:nowrap;
@@ -88,7 +87,7 @@ a:hover{text-decoration-color:var(--ink)}
 .avatar{padding:0;cursor:zoom-in;transition:transform .3s var(--ease)}
 .avatar:hover{transform:scale(1.03)}
 .avatar img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.08);transform-origin:50% 30%}
-.intro h1{font:400 40px/1.05 var(--serif);letter-spacing:-.01em;padding-top:16px}
+.intro h1{font:400 40px/1.05 var(--serif);letter-spacing:-.02em;padding-top:16px}
 .tag{font:400 13px/1.5 var(--mono);color:var(--muted);margin-top:6px}
 .info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 20px;font:400 12.5px/1.5 var(--mono)}
 .info span{color:var(--muted);display:block;font-size:11px}
@@ -151,14 +150,16 @@ a:hover{text-decoration-color:var(--ink)}
 
 /* sections */
 section{scroll-margin-top:64px}
-.sh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:16px;padding-bottom:12px}
-.sh h2{font:400 30px/1.1 var(--serif);letter-spacing:-.01em}
+main,body{counter-reset:sec}
+.sh{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:18px;padding-bottom:14px}
+.sh h2{counter-increment:sec;display:flex;align-items:baseline;gap:12px;font:400 28px/1.1 var(--serif);letter-spacing:-.015em}
+.sh h2::before{content:counter(sec,decimal-leading-zero);font:500 11px/1 var(--mono);color:var(--t3);letter-spacing:.04em;transform:translateY(-3px)}
 .sh .meta{font:400 12px/1 var(--mono);color:var(--muted);white-space:nowrap}
 .sb{padding-top:22px;padding-bottom:30px}
 .prose{display:grid;gap:14px;color:var(--ink2)}
 .prose b{color:var(--ink);font-weight:500}
 
-.item{padding-block:22px;border-top:1px dashed var(--line2)}
+.item{padding-block:22px;border-top:1px solid var(--line)}
 .item:first-child{border-top:0;padding-top:0}
 .ih{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:center}
 .lg{width:32px;height:32px;border-radius:8px;border:1px solid var(--line2);background:var(--card);display:grid;place-items:center;font:500 13px/1 var(--mono);color:var(--ink2);overflow:hidden}
@@ -207,7 +208,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line2);border-radius:4px;
 .photo-cap{font:400 11px/1.4 var(--mono);color:var(--muted);margin-top:6px}
 
 .kv{display:grid;margin-top:22px}
-.kv div{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;padding-block:9px;border-top:1px dashed var(--line2)}
+.kv div{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;padding-block:9px;border-top:1px solid var(--line)}
 .kv div:first-child{border-top:0}
 .kv dt{font:400 12px/1.65 var(--mono);color:var(--muted);padding-top:1px}
 .kv dd{color:var(--ink2)}
@@ -228,7 +229,7 @@ kbd{font:500 10px/1 var(--mono);border:1px solid var(--line2);border-radius:4px;
 :root[data-theme="dark"] img.sk{filter:invert(1)}
 
 .hi p.big{font:400 30px/1.15 var(--serif);max-width:22ch}
-footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:20px 40px;border-top:1px dotted var(--soft);font:400 11px/1.5 var(--mono);color:var(--muted)}
+footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-block:20px 40px;border-top:1px solid var(--line);font:400 11px/1.5 var(--mono);color:var(--muted)}
 
 @media (max-width:600px){
   .intro{grid-template-columns:minmax(0,1fr);gap:0}
@@ -313,7 +314,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
   <div class="rule" aria-hidden="true"></div>
 
   <section id="about">
-    <div class="sh pad"><h2>about</h2><span class="meta">october 2026</span></div>
+    <div class="sh pad"><h2>About</h2><span class="meta">october 2026</span></div>
     <div class="sb pad prose">
       <p>I'm an industrial engineer from Universidad de los Andes. I started my career in investment banking, and today I work with customers at <b>Aleph</b>, an AI-native finance software startup.</p>
       <p>I like working where numbers meet product: understanding what a customer needs and helping the team build it. In my free time I build my own tools with AI and invest in early-stage startups in Latin America.</p>
@@ -324,7 +325,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
   <div class="rule" aria-hidden="true"></div>
 
   <section id="work">
-    <div class="sh pad"><h2>work</h2></div>
+    <div class="sh pad"><h2>Work</h2></div>
     <div class="sb pad">
       <article class="item">
         <div class="ih"><span class="lg"><img src="img/aleph.webp" alt="Aleph logo" width="128" height="128"></span><div><h3><a href="https://www.getaleph.com/" target="_blank" rel="noopener">aleph</a> · engagement associate</h3><p>bogotá | apr 2026 – now</p></div></div>
@@ -356,7 +357,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
   <div class="rule" aria-hidden="true"></div>
 
   <section id="projects">
-    <div class="sh pad"><h2>projects</h2><span class="meta">built with ai</span></div>
+    <div class="sh pad"><h2>Projects</h2><span class="meta">built with ai</span></div>
     <div class="sb pad">
       <article class="item" id="tempo">
         <div class="ih"><span class="lg">t</span><div><h3>tempo mail</h3><p>email, without the mouse</p></div></div>
@@ -396,7 +397,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
   <div class="rule" aria-hidden="true"></div>
 
   <section id="education">
-    <div class="sh pad"><h2>education</h2><span class="meta">bogotá · eindhoven · boppard</span></div>
+    <div class="sh pad"><h2>Education</h2><span class="meta">bogotá · eindhoven · boppard</span></div>
     <div class="sb pad">
       <article class="item">
         <div class="ih"><span class="lg">u</span><div><h3>universidad de los andes</h3><p>bogotá | 2020 – 2025</p></div></div>
@@ -430,7 +431,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
   <div class="rule" aria-hidden="true"></div>
 
   <section id="hobbies">
-    <div class="sh pad"><h2>outside work</h2><span class="meta">drawn by hand, sort of</span></div>
+    <div class="sh pad"><h2>Outside work</h2><span class="meta">drawn by hand, sort of</span></div>
     <div class="sb pad">
       <div class="hob">
         <div class="hc">
@@ -509,7 +510,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
   <div class="rule" aria-hidden="true"></div>
 
   <section id="contact" class="hi">
-    <div class="sh pad"><h2>say hi</h2><span class="meta">coffee's on me</span></div>
+    <div class="sh pad"><h2>Say hi</h2><span class="meta">coffee's on me</span></div>
     <div class="sb pad">
       <p class="big">want to talk finance, startups or ai? write me.</p>
       <div class="pills" style="margin-top:18px">
