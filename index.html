@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Juan Bernardo Parra: finance, customers and tools built with AI. Bogotá, Colombia.">
-<title>Juan Bernardo Parra</title>
+<title>Juan Parra · finance, customers & ai</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Architects+Daughter&display=swap">
@@ -117,6 +119,7 @@ a:hover{text-decoration-color:var(--ink)}
 .tldr[aria-expanded="true"]{background:var(--card);color:var(--ink)}
 .scribble{display:flex;align-items:center;gap:4px;font:15px/1.2 var(--hand);color:var(--muted)}
 .scribble svg{width:46px;height:26px;flex:none}
+.scribble .ar-u{display:none}
 .drawer{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s ease-out}
 .drawer.open{grid-template-rows:1fr}
 .drawer > div{overflow:hidden}
@@ -161,6 +164,7 @@ section{scroll-margin-top:64px}
 .lg{width:32px;height:32px;border-radius:8px;border:1px solid var(--line2);background:var(--card);display:grid;place-items:center;font:500 13px/1 var(--mono);color:var(--ink2);overflow:hidden}
 .lg img{width:100%;height:100%;object-fit:cover}
 .lg.inv{background:#fff}
+.lg.sprout svg{width:22px;height:22px}
 .ih h3{font-size:15px;font-weight:500;line-height:1.3}
 .ih p{font:400 12px/1.4 var(--mono);color:var(--muted)}
 .item ul{list-style:none;padding:0;margin-top:14px;display:grid;gap:8px;color:var(--ink2)}
@@ -233,6 +237,10 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
   .info{grid-template-columns:minmax(0,1fr)}
   .kv div{grid-template-columns:minmax(0,1fr);gap:2px}
   .cover{height:200px}
+  .tl-row{flex-direction:column;align-items:flex-start;gap:2px}
+  .scribble{padding-left:6px}
+  .scribble .ar-l{display:none}
+  .scribble .ar-u{display:block;margin-bottom:-4px}
   .chip{top:auto;bottom:10px}
   .coord{display:none}
   .hob{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -244,7 +252,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
 
 <div class="frame">
   <header class="nav pad">
-    <a class="logo" href="#top" aria-label="Back to top">JBP<i>.</i></a>
+    <a class="logo" href="#top" aria-label="Back to top">JBPH<i>.</i></a>
     <nav class="links" aria-label="Sections">
       <a href="#about">about</a>
       <a href="#work">work</a>
@@ -295,7 +303,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
       <div class="tl">
         <div class="tl-row">
           <button class="tldr" type="button" aria-expanded="false" id="tldr"><span class="dot" aria-hidden="true"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/></svg>tl;dr</button>
-          <span class="scribble" aria-hidden="true"><svg viewBox="0 0 46 26"><path class="sk-ink" style="stroke-width:1.6;stroke:var(--muted)" d="M44 6 C30 2 16 6 8 16 M8 16 L9 8 M8 16 L15 15"/></svg>the 30-second version of everything below</span>
+          <span class="scribble" aria-hidden="true"><svg class="ar-l" viewBox="0 0 46 26"><path class="sk-ink" style="stroke-width:1.6;stroke:var(--muted)" d="M44 6 C30 2 16 6 8 16 M8 16 L9 8 M8 16 L15 15"/></svg><svg class="ar-u" viewBox="0 0 46 26"><path class="sk-ink" style="stroke-width:1.6;stroke:var(--muted)" d="M38 23 C26 22 16 16 13 4 M13 4 L9 10 M13 4 L18 9"/></svg>the 30-second version of everything below</span>
         </div>
         <div class="drawer" id="drawer"><div><div class="chat" id="chat" role="log" aria-live="polite"></div></div></div>
       </div>
@@ -309,14 +317,14 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
     <div class="sb pad prose">
       <p>I'm an industrial engineer from Universidad de los Andes. I started my career in investment banking, and today I work with customers at <b>Aleph</b>, an AI-native finance software startup.</p>
       <p>I like working where numbers meet product: understanding what a customer needs and helping the team build it. In my free time I build my own tools with AI and invest in early-stage startups in Latin America.</p>
-      <p>I grew up in Bogotá, went to a German school and spent time studying in Germany and the Netherlands.</p>
+      <p>I grew up in Bogotá, went to a German school and spent time studying in Germany and the Netherlands. Along the way I became convinced that education can change the world.</p>
     </div>
   </section>
 
   <div class="rule" aria-hidden="true"></div>
 
   <section id="work">
-    <div class="sh pad"><h2>work</h2><span class="meta">2025 – now</span></div>
+    <div class="sh pad"><h2>work</h2></div>
     <div class="sb pad">
       <article class="item">
         <div class="ih"><span class="lg"><img src="img/aleph.webp" alt="Aleph logo" width="128" height="128"></span><div><h3><a href="https://www.getaleph.com/" target="_blank" rel="noopener">aleph</a> · engagement associate</h3><p>bogotá | apr 2026 – now</p></div></div>
@@ -337,7 +345,7 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
       </article>
 
       <article class="item">
-        <div class="ih"><span class="lg">$</span><div><h3>angel investing · personal</h3><p>latin america | nov 2025 – now</p></div></div>
+        <div class="ih"><span class="lg sprout"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-9" stroke="var(--ink2)" stroke-width="1.6"/><path d="M12 12c0-4 3-6.5 7-6.5 0 4-3 6.5-7 6.5Z" fill="var(--h-leaf)" stroke="var(--h-green)" stroke-width="1.4"/><path d="M12 14.5c0-3-2.4-5-5.5-5 0 3 2.4 5 5.5 5Z" fill="var(--h-leaf)" stroke="var(--h-green)" stroke-width="1.4"/><path d="M7 21h10" stroke="var(--ink2)" stroke-width="1.6"/></svg></span><div><h3>angel investing · personal</h3><p>latin america | nov 2025 – now</p></div></div>
         <ul>
           <li>I invest in early-stage wellness and consumer startups in Latin America.</li>
         </ul>
@@ -380,13 +388,6 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
         <div class="ih"><span class="lg">f</span><div><h3>faro</h3><p>my radar for ideas worth building</p></div></div>
         <p>My personal radar for problems, ideas and opportunities. I jot down whatever I notice during the day in a few seconds, then decide quickly what to drop, keep or work on. Once a week Claude goes through everything and suggests new ideas, including some outside what I usually look at.</p>
         <figure class="vid"><video src="img/faro.mp4" poster="img/faro-poster.jpg" autoplay muted loop playsinline controls preload="metadata" aria-label="Faro demo"></video></figure>
-        <dl class="kv steps">
-          <div><dt>01 capture</dt><dd>Write down a problem, idea, question or opportunity in seconds.</dd></div>
-          <div><dt>02 explore</dt><dd>Go through them one by one: discard, save for later, or send to the workshop.</dd></div>
-          <div><dt>03 library</dt><dd>Everything I've noted, in one place, with search and filters.</dd></div>
-          <div><dt>04 idea mix</dt><dd>Each week Claude crosses it all and proposes ideas and connections.</dd></div>
-          <div><dt>05 workshop</dt><dd>Notes, hypotheses and next steps for the ideas I chose to work on.</dd></div>
-        </dl>
         <p class="hint">capturing and deciding need no ai. claude only steps in, in batches, when it's worth it.</p>
       </article>
     </div>
@@ -412,6 +413,8 @@ footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;paddin
       <article class="item">
         <div class="ih"><span class="lg">a</span><div><h3>colegio andino, deutsche schule</h3><p>bogotá | 2006 – 2020</p></div></div>
         <p>German school in Bogotá, with an exchange term at Kant-Gymnasium in Boppard, Germany, in 2018. Top 1% nationwide in the Saber 11 exam.</p>
+        <div class="photo"><img src="img/colegio.webp" alt="Aerial view of Colegio Andino's campus and sports fields, with the hills behind" loading="lazy" width="956" height="817"></div>
+        <p class="photo-cap">colegio andino campus, bogotá</p>
       </article>
 
       <dl class="kv">
